@@ -1,3 +1,17 @@
 {% extends 'layoutLI.html' %}
 {% block title %}Login{% endblock %}
-{% block main %}<p>Login here</p>{% endblock main %}
+{% block body %}
+<div class="hero-image"></div>
+<div class="login-container">
+    <span alt="TMH Logo" class="tmh-logo">Tempory Logo</span>
+    <div class="login-buttons">
+        <a class="login-button" id="create">Create an account</a>
+        <a class="login-button">Login</a>
+    </div>
+    <span id="owner">Created by Dominic O'Donnell</span>
+    <div class="contact-owner">
+        <a target="_blank" href="https://github.com/Dominicod"><i class="fab fa-github fa-lg"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/dominic-o-donnell-6a689017a/"><i class="fab fa-linkedin fa-lg"></i></a>
+    </div>
+</div>
+{% endblock body %}

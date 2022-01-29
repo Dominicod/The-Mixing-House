@@ -1,0 +1,96 @@
+html, body { font-size: 16px; margin: 0;
+    background-color: #505050;
+    font-family: Verdana, sans-serif;
+}
+
+/* Sets the background image and darkens the image for clarity */
+.hero-image { height: 97vh; width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("/static/img/BG1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Footer section, supports multi-items */
+.footer-container { position: fixed; bottom: 0; width: 100%; height: 3vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+.footer-item { padding-left: 1rem;
+    color: #A8A8A8;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.icon-text {
+    font-size: 0.8rem;
+    line-height: 30px;
+}
+
+/* Login Section */
+.login-container { top: 20%; left: 40%; height: 25rem; width: 22rem;
+    position: absolute;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+}
+.login-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.login-button { width: 18rem; height: 2.5rem;
+    background-color: rgba( 220, 220, 220, 0.9 );
+    border: none;
+    font-weight: bold;
+    color: #505050;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 2rem;
+    line-height: 2.5rem;
+    cursor: pointer;
+}
+#create {
+    background-color: rgba(  249, 132, 46 , 0.9 );
+    color: rgba(255,255,255)
+}
+.login-button:hover {
+    background-color: rgba( 200, 200, 200, 0.9 );
+}
+#create:hover {
+    background-color: rgba(240, 108, 13, 0.9);
+}
+.tmh-logo { width: 20rem; height: 10rem;
+    background-image: url("/static/img/templogo.png");
+    margin-bottom: 2rem;
+}
+#owner { margin-top: 1rem; margin-bottom: 1rem; padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font-size: 0.8rem;
+}
+.contact-owner {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+.fa-github {
+    color: rgba(201, 81, 12, 1);
+}
+.fa-linkedin {
+    color: rgba(64, 120, 192, 1);
+}
+.fa-github:hover {
+    color: rgba(201, 81, 12, 0.8)
+}
+.fa-linkedin:hover {
+    color: rgba(64, 120, 192, 0.8)
+}
