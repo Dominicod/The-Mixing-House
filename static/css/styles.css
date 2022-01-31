@@ -40,7 +40,7 @@ html, body { font-size: 16px; margin: 0;
 
 /* Login Section */
 
-.login-container { top: 20%; left: 40%; height: auto; width: 22rem;
+.login-container { top: 40%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); height: auto; width: 22rem;
     position: absolute;
     background-color: rgba(255,255,255,0.9);
     border-radius: 0.5rem;
@@ -129,4 +129,14 @@ html, body { font-size: 16px; margin: 0;
 }
 ::placeholder {
     font-style: italic;
+}
+
+@media only screen and (max-width: 400px) {
+    .icon-text {
+        font-size: 0.7rem;
+        line-height: 30px;
+    }
+    .footer-item>p {
+        font-size: 0.7rem;
+    }
 }
