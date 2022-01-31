@@ -11,7 +11,9 @@ let BG1 = new BGImg("url('/static/img/BG1.jpg')", false)
 let BG2 = new BGImg("url('/static/img/BG2.jpg')", false)
 let BG3 = new BGImg("url('/static/img/BG3.jpg')", false)
 let BG4 = new BGImg("url('/static/img/BG4.jpg')", false)
-arr = [BG1, BG2, BG3, BG4];
+let BG5 = new BGImg("url('/static/img/BG5.jpg')", false)
+let BG6 = new BGImg("url('/static/img/BG6.jpg')", false)
+arr = [BG1, BG2, BG3, BG4, BG5, BG6];
 total = 0;
 
 // Cycles through the background images untill it cannot cycle anymore, which it then reevaluates arr.displayed = false
