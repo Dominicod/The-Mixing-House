@@ -1,15 +1,12 @@
 {% extends 'layout.html' %}
-{% block title %}Login{% endblock %}
+{% block title %}Landing{% endblock %}
 {% block body %}
 <div class="hero-image"></div>
 <div class="login-container">
     <span alt="TMH Logo" class="tmh-logo"></span>
     <div class="login-buttons">
-        <form class="rgform" action="/register" method="post">
-            <input class="rginput" autocomplete="off" placeholder="Username" type="text" id="username" name="username"></input>
-            <input class="rginput" autocomplete="off" placeholder="Password" type="password" id="password" name="password"></input>
-            <input class="login-button" id="create" type="submit" value="Login">
-        </form>
+        <a class="login-button" id="create" href="/register">Create an account</a>
+        <a class="login-button" href="/login">Login</a>
     </div>
     <span id="owner">Created by Dominic O'Donnell</span>
     <div class="contact-owner">

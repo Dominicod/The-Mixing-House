@@ -3,7 +3,11 @@ html, body { font-size: 16px; margin: 0;
     font-family: Verdana, sans-serif;
 }
 
+
+/* LANDING PAGE */
+
 /* Sets the background image and darkens the image for clarity */
+
 .hero-image { height: 97vh; width: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("/static/img/BG1.jpg");
     background-position: center;
@@ -13,6 +17,7 @@ html, body { font-size: 16px; margin: 0;
 }
 
 /* Footer section, supports multi-items */
+
 .footer-container { position: fixed; bottom: 0; width: 100%; height: 3vh;
     display: flex;
     justify-content: start;
@@ -29,9 +34,13 @@ html, body { font-size: 16px; margin: 0;
     font-size: 0.8rem;
     line-height: 30px;
 }
+.footer-item>p {
+    font-size: 0.8rem;
+}
 
 /* Login Section */
-.login-container { top: 20%; left: 40%; height: 25rem; width: 22rem;
+
+.login-container { top: 20%; left: 40%; height: auto; width: 22rem;
     position: absolute;
     background-color: rgba(255,255,255,0.9);
     border-radius: 0.5rem;
@@ -70,8 +79,12 @@ html, body { font-size: 16px; margin: 0;
     background-color: rgba(240, 108, 13, 0.9);
 }
 .tmh-logo { width: 20rem; height: 10rem;
-    background-image: url("/static/img/templogo.png");
     margin-bottom: 2rem;
+    background-image: url("/static/img/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20rem;
+    
 }
 #owner { margin-top: 1rem; margin-bottom: 1rem; padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0,0,0,0.2);
@@ -81,6 +94,7 @@ html, body { font-size: 16px; margin: 0;
     display: flex;
     gap: 1rem;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 .fa-github {
     color: rgba(201, 81, 12, 1);
@@ -93,4 +107,26 @@ html, body { font-size: 16px; margin: 0;
 }
 .fa-linkedin:hover {
     color: rgba(64, 120, 192, 0.8)
+}
+
+/* Registeration */
+
+.rgform {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.rginput { width: 18rem; height: 2.5rem;
+    background-color: rgba( 255, 255, 255, 0.9 );
+    border: none;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 2.5rem;
+    outline: none;
+    padding-left: 0.8rem;
+}
+::placeholder {
+    font-style: italic;
 }

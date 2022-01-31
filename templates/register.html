@@ -1,3 +1,20 @@
-{% extends 'layoutLI.html' %}
+{% extends 'layout.html' %}
 {% block title %}Register{% endblock %}
-{% block body %}<p>Register here</p>{% endblock body %}
+{% block body %}
+<div class="hero-image"></div>
+<div class="login-container">
+    <span alt="TMH Logo" class="tmh-logo"></span>
+    <div class="login-buttons">
+        <form class="rgform" action="/register" method="post">
+            <input class="rginput" autocomplete="off" placeholder="Username" type="text" id="username" name="username"></input>
+            <input class="rginput" autocomplete="off" placeholder="Password" type="password" id="password" name="password"></input>
+            <input class="login-button" id="create" type="submit" value="Create">
+        </form>
+    </div>
+    <span id="owner">Created by Dominic O'Donnell</span>
+    <div class="contact-owner">
+        <a target="_blank" href="https://github.com/Dominicod"><i class="fab fa-github fa-lg"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/dominic-o-donnell-6a689017a/"><i class="fab fa-linkedin fa-lg"></i></a>
+    </div>
+</div>
+{% endblock body %}
