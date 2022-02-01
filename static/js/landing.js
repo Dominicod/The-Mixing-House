@@ -18,17 +18,20 @@ total = 0;
 
 // Cycles through the background images untill it cannot cycle anymore, which it then reevaluates arr.displayed = false
 window.onload = function ImageCycle() {
-    random = Math.floor(Math.random() * arr.length)
-    if (arr[random].displayed == false) {
-        document.getElementById("hero").style.backgroundImage=arr[random].url;
-        arr[random].displayed = true;
-        total++;
-    }
-    else if (total == arr.length) {
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].displayed = false;
+    do {
+        random = Math.floor(Math.random() * arr.length)
+        console.log(random)
+        total++
+        if (total == arr.length) {
+            if (total >= arr.length) {
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i].displayed = false;
+                }
+            total = 0;
+            }
         }
-        total = 0;
-    }
-    timerRef = setTimeout(ImageCycle, 10000);
+    } while (arr[random].displayed == true);
+    document.getElementById("hero").style.backgroundImage=arr[random].url;
+    arr[random].displayed = true;
+    setTimeout(ImageCycle, 10000);
 }
