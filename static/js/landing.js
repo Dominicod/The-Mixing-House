@@ -20,7 +20,6 @@ total = 0;
 window.onload = function ImageCycle() {
     do {
         random = Math.floor(Math.random() * arr.length)
-        console.log(random)
         total++
         if (total == arr.length) {
             if (total >= arr.length) {
@@ -31,7 +30,8 @@ window.onload = function ImageCycle() {
             }
         }
     } while (arr[random].displayed == true);
-    document.getElementById("hero").style.backgroundImage=arr[random].url;
+    background = document.getElementById("hero");
+    background.style.backgroundImage=arr[random].url;
     arr[random].displayed = true;
     setTimeout(ImageCycle, 10000);
 }

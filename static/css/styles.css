@@ -1,8 +1,10 @@
+/* Font styles */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 html, body { font-size: 16px; margin: 0;
     background-color: #505050;
     font-family: Verdana, sans-serif;
 }
-
 
 /* LANDING PAGE */
 
@@ -14,36 +16,7 @@ html, body { font-size: 16px; margin: 0;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    animation: 3s;
-    -webkit-animation: fadeIn 3s;
-    -moz-animation: fadeIn 3s;
-    -o-animation: fadeIn 3s;
-    -ms-animation: fadeIn 3s;
 }
-@keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-  }
-  
-  @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-  }
-  
-  @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-  }
-  
-  @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-  }
-  
-  @-ms-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-  }
 
 /* Footer section, supports multi-items */
 
@@ -52,19 +25,74 @@ html, body { font-size: 16px; margin: 0;
     justify-content: start;
     align-items: center;
     gap: 1rem;
+    z-index: 1000;
 }
 .footer-item { padding-left: 1rem;
     color: #A8A8A8;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
 }
 .icon-text {
     font-size: 0.8rem;
     line-height: 30px;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: #A8A8A8
+}
+.menu-container.active > .icon-text,
+.icon-text:hover {
+    color: rgb(255,255,255);
+}
+.icon-text > i {
+    font-size: 0.8rem;
 }
 .footer-item>p {
     font-size: 0.8rem;
+}
+
+/* Menu Section */
+
+.menu-container {
+    position: relative;
+    color: #505050;
+}
+
+.menu-item {
+    position: absolute;
+    left: -10px;
+    bottom: 100%;
+    background-color: #A8A8A8;
+    padding: .75rem;
+    border-radius: 0.5rem;
+    box-shadow: 2px 0 15px 0 rgba(0,0,0,.1);
+    opacity: 0;
+    width: 25rem;
+    height: 20rem;
+    pointer-events: none;
+    transition: opacity 150ms ease-in-out;
+}
+.menu-container.active > .icon-text + .menu-item {
+    opacity: 0.9;
+    pointer-events: auto;
+}
+.tmh-logo-sm {
+    display: inline-block;
+    width: 8rem; 
+    height: 3rem;
+    background-image: url("/static/img/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 8rem;
+}
+.website-desc {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.external-links {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    margin-bottom: 0.2rem;
 }
 
 /* Login Section */
@@ -72,11 +100,12 @@ html, body { font-size: 16px; margin: 0;
 .login-container { top: 40%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); height: auto; width: 22rem;
     position: absolute;
     background-color: rgba(255,255,255,0.9);
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 5;
+    z-index: 3;
+    opacity: 1;
 }
 .login-buttons {
     display: flex;
@@ -97,14 +126,14 @@ html, body { font-size: 16px; margin: 0;
     line-height: 2.5rem;
     cursor: pointer;
 }
-#create {
+#create, #login, #emsubmit {
     background-color: rgba(  249, 132, 46 , 0.9 );
     color: rgba(255,255,255)
 }
 .login-button:hover {
     background-color: rgba( 200, 200, 200, 0.9 );
 }
-#create:hover {
+#create:hover, #login:hover, #emsubmit:hover {
     background-color: rgba(240, 108, 13, 0.9);
 }
 .tmh-logo { width: 20rem; height: 10rem;
@@ -113,7 +142,6 @@ html, body { font-size: 16px; margin: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20rem;
-    
 }
 #owner { margin-top: 1rem; margin-bottom: 1rem; padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0,0,0,0.2);
@@ -132,13 +160,72 @@ html, body { font-size: 16px; margin: 0;
     color: rgba(64, 120, 192, 1);
 }
 .fa-github:hover {
-    color: rgba(201, 81, 12, 0.8)
+    color: rgba(201, 81, 12, 0.8);
 }
 .fa-linkedin:hover {
-    color: rgba(64, 120, 192, 0.8)
+    color: rgba(64, 120, 192, 0.8);
+}
+.fa-envelope-square {
+    color: rgba(66, 133, 244, 1);
+}
+.fa-envelope-square:hover {
+    color:rgba(66, 133, 244, 0.8);
 }
 
-/* Registeration */
+/* Email */
+.email-container {
+    background-color: #505050;
+    position: absolute;
+    z-index: 10;
+    top: 22%; 
+    left: 50%; 
+    margin-right: -50%; 
+    transform: translate(-50%, -50%); 
+    height: auto; 
+    width: 31rem;
+    border-radius: .25rem;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+.email-container.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.emailform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.emailform > h4 {
+    margin: 0.5rem;
+    align-self: flex-start;
+    font-size: 0.8rem;
+}
+.emailform > h3 {
+    width: 100%;
+    margin: 1rem;
+    font-size: 2.5rem;
+    color:rgba(240, 108, 13, 1);
+    font-family: 'Lobster', cursive;
+    letter-spacing: 0.3rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+#emtext {
+    height: 10rem;
+    margin-bottom: 1rem;
+    resize: none;
+}
+#emtext, #email {
+    align-self: flex-start;
+    border-radius: .25rem;
+    width: 30rem;
+}
+
+
+/* registration */
 
 .rgform {
     display: flex;

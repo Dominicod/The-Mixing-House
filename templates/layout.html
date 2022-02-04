@@ -12,18 +12,48 @@
     <link rel="stylesheet" href="/static/css/styles.css">
     <!-- Link to FontAwesome -->
     <script src="https://kit.fontawesome.com/39359afa97.js" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script src="static/js/menu.js" defer></script>
 </head>
 
 <body>
-    {% block body %}{% endblock %}
-    <div class="footer-container">
-        <div class="footer-item">
-            <span class="icon-text">About TMH</span>
-            <i class="fas fa-angle-down fa-sm"></i>
-        </div>
-        <div class="footer-item">
-            <p>Created my logo at LogoMakr.com/app<p>
-        </div>
+    <div data-email-container data-dropdown id="email-container" class="email-container">
+        <form class="emailform" id="email" method="post">
+            <h3>Contact Me</h3>
+            <h4>Your Email Address:</h4>
+            <input autofocus="autofocus" class="rginput" autocomplete="off" placeholder="John@gmail.com" type="email" id="email" name="email"></input>
+            <h4>Reason For Contact:</h4>
+            <textarea class="rginput" id="emtext" ></textarea>
+            <input class="login-button" id="emsubmit" type="submit" value="Submit">
+        </form>
     </div>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+        <div class="footer-container">
+            <div class="footer-item">
+                <div class="menu-container" data-dropdown>
+                    <button class="icon-text" data-dropdown-button>About TMH     <i class="fas fa-angle-down fa-sm"></i></button>
+                    <div class="menu-item">
+                        <div id="menu">
+                            <span alt="TMH Logo" class="tmh-logo-sm"></span>
+                            <p class="website-desc"><strong>The Mixing House</strong> is a web app for the average home bartender. Input your current bar inventory and this app will let you know what you can create! </p>
+                            <div class="project-tech">
+                                <p class="project-tech-header"><strong>Project Tech:</strong></p>
+                                <p class="project-tech-tech">HTML, CSS, JavaScript, Python, Flask</p>
+                            </div>
+                            <div class="menu-contact">
+                                <p><strong>Contact:</strong></p>
+                                <div class="external-links">
+                                    <a target="_blank" href="https://github.com/Dominicod"><i class="fab fa-github fa-lg"></i></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/dominic-o-donnell-6a689017a/"><i class="fab fa-linkedin fa-lg"></i></a>
+                                    <a><i data-dropdown-button data-email class="fas fa-envelope-square fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

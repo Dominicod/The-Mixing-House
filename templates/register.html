@@ -1,10 +1,10 @@
 {% extends 'layout.html' %}
 {% block title %}Register{% endblock %}
-{% block body %}
+{% block main %}
 <div class="hero-image" id="hero"></div>
 <!-- Script to change the background image over time -->
 <script src="static/js/landing.js"></script>
-<div class="login-container">
+<div class="login-container" id="login-container">
     <span alt="TMH Logo" class="tmh-logo"></span>
     <div class="login-buttons">
         <form class="rgform" action="/register" method="post">
@@ -17,6 +17,7 @@
     <div class="contact-owner">
         <a target="_blank" href="https://github.com/Dominicod"><i class="fab fa-github fa-lg"></i></a>
         <a target="_blank" href="https://www.linkedin.com/in/dominic-o-donnell-6a689017a/"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a><i data-dropdown-button data-email class="fas fa-envelope-square fa-lg"></i></a>
     </div>
 </div>
-{% endblock body %}
+{% endblock main %}
