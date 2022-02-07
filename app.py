@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request, url_for
 from flask_session import Session
 
 app = Flask(__name__)
@@ -19,10 +19,18 @@ def after_request(response):
 def index():
     return render_template("landing.html")
 
+# Website Registration
 @app.route("/register")
 def register():
+    if request.method == "POST":
+        print("Success")
+        return render_template("landing.html")
+
     return render_template("register.html")
 
+# Website Login
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+        

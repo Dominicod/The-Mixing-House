@@ -2,20 +2,13 @@
 document.addEventListener('click', e=> {
     const isDropdownbutton =  e.target.matches('[data-dropdown-button]')
     // If the click is inside dropdown, program returns
-    if (!isDropdownbutton && e.target.closest('[data-dropdown]') != null || e.target.matches('[data-email-container]')) return
+    if (!isDropdownbutton && e.target.closest('[data-dropdown]') != null ) return
 
     let currentDropdown
     // Program changes dropdown button class to .active
     if(isDropdownbutton) {
-        // Asks if this dropdown button leads to the email menu or the about section
-        if(e.target.matches('[data-email]')) {
-            currentDropdown = document.getElementById('email-container')
-            currentDropdown.classList.toggle('active')
-        }
-        else {
-            currentDropdown = e.target.closest('[data-dropdown]')
-            currentDropdown.classList.toggle('active')
-        }
+        currentDropdown = e.target.closest('[data-dropdown]')
+        currentDropdown.classList.toggle('active')
     }
     // Removes all .active classes outside of the current active class
     document.querySelectorAll('[data-dropdown].active').forEach(dropdown => {
