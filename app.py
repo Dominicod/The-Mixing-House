@@ -31,6 +31,11 @@ def register():
 # Website Login
 @app.route("/login")
 def login():
+    if request.method == "POST":
+        print("Success")
+        return render_template("landing.html")
+        
     return render_template("login.html")
+    
 
         
