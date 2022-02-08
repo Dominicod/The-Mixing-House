@@ -1,34 +1,42 @@
-// Uses AJAX to validate user auth input
+// Uses AJAX/JSON to validate user auth input
 const button = document.querySelector("#create")
 
 // waits for button press, sends data with AJAX to the backend, returns issues that occur
 button.addEventListener('click', e => {
-    console.log("Button activated!~")
-    username = document.getElementById('username').value
-    password = document.getElementById('password').value
-    if (!username) {
-        document.getElementById('username').style.border = "thick solid red";
+    const auth = {
+        "username": document.getElementById('username').value,
+        "password": document.getElementById('password').value,
+        "origin": window.location.pathname
+    };
+    if (!auth.username) {
+        document.getElementById('username').style.border = "solid red";
         throw 'Username needed'
     }
-    if (!password) {
-        document.getElementById('password').style.border = "thick solid red";
+    if (!auth.password) {
+        document.getElementById('password').style.border = "solid red";
         throw 'Password needed'
     }
     // Trys to send information to server, prints error if failure
     try {
-        // Sets up form data
-        const data = new FormData()
-        data.append("username", username);
-        data.append("password", password);
-
-        const XHR = new XMLHttpRequest();
-
-        console.log("Opening XHR Request");
-        XHR.open("POST", "app.py", true);
-
-        console.log("XHR Data sent");
-        XHR.send(data);
+        fetch(`${window.origin}/validation`, {
+                method: "POST",
+                credentials: "include",
+                body: JSON.stringify(auth),
+                cache: "no-cache",
+                headers: new Headers({
+                    "content-type": "application/json"
+                })
+            })
+            .then(response => {
+                if (response.status !== 200) {
+                    console.log(`Response status was not 200: ${response.status}`);
+                    return;
+                }
+            })
     } catch (error) {
         console.log(error);
     }
 })
+
+// If code == 307 redirect user to landing
+// else if code == 400 prompt user saying invalid

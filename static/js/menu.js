@@ -1,12 +1,12 @@
 // Listens for mouse click, and then asks if the click target has data-dropdown-button
-document.addEventListener('click', e=> {
-    const isDropdownbutton =  e.target.matches('[data-dropdown-button]')
+document.addEventListener('click', e => {
+    const isDropdownbutton = e.target.matches('[data-dropdown-button]')
     // If the click is inside dropdown, program returns
-    if (!isDropdownbutton && e.target.closest('[data-dropdown]') != null ) return
+    if (!isDropdownbutton && e.target.closest('[data-dropdown]') != null) return
 
     let currentDropdown
     // Program changes dropdown button class to .active
-    if(isDropdownbutton) {
+    if (isDropdownbutton) {
         currentDropdown = e.target.closest('[data-dropdown]')
         currentDropdown.classList.toggle('active')
     }

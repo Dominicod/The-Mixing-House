@@ -26,12 +26,12 @@ window.onload = function ImageCycle() {
                 for (let i = 0; i < arr.length; i++) {
                     arr[i].displayed = false;
                 }
-            total = 0;
+                total = 0;
             }
         }
     } while (arr[random].displayed == true);
     background = document.getElementById("hero");
-    background.style.backgroundImage=arr[random].url;
+    background.style.backgroundImage = arr[random].url;
     arr[random].displayed = true;
     setTimeout(ImageCycle, 10000);
 }
