@@ -28,15 +28,21 @@ button.addEventListener('click', e => {
                 })
             })
             .then(response => {
-                if (response.status !== 200) {
-                    console.log(`Response status was not 200: ${response.status}`);
+                if (response.status == 400) {
+                    // Invalid login
+                    document.getElementById("warning").style.display = "inline"
                     return;
+                }
+                else if (response.status == 307) {
+                    // valid login
+                    location.href = `${window.origin}/`;
+                    return;
+                }
+                else {
+                    console.log(`Server response was not 200: ${response.status}`)
                 }
             })
     } catch (error) {
         console.log(error);
     }
 })
-
-// If code == 307 redirect user to landing
-// else if code == 400 prompt user saying invalid
