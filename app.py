@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 
-# Sets secret key
+# Sets secret key and session
 app.config["SECRET_KEY"] = "ef5c53f2003c4a448eedb3334d7de41b"
 app.config["SESSION_PERMANENT"] = False
 
@@ -72,7 +72,12 @@ def validation():
         # Finds the origin of the request
         if req['origin'] == "/login":
             # Handles login
-            print("login")
+            db.execute("SELECT * FROM users WHERE username=?", [
+                       req['username']])
+            user = db.fetchall()
+            if len(user) != 1 or not check_password_hash(user[0][2], req['password']):
+                return "Invalid Login", 400
+
         elif req['origin'] == "/register":
             # Handles registration
             # Registers the user into the database
@@ -85,7 +90,7 @@ def validation():
                 password = generate_password_hash(req['password'])
                 db.execute("INSERT INTO users (username, hash) VALUES (?,?)", [
                            req['username'], password])
-                # con.commit()
+                con.commit()
         else:
             return "Invalid Login", 400
 
