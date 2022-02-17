@@ -1,19 +1,31 @@
-// Uses AJAX/JSON to validate user auth input
-const button = document.querySelector("#create")
+// Uses JSON to validate user auth input
+const buttonsi = document.querySelector("#signin")
+const buttoncr = document.querySelector("#create")
 
 // waits for button press, sends data with AJAX to the backend, returns issues that occur
-button.addEventListener('click', e => {
+buttonsi.addEventListener('click', validate)
+buttoncr.addEventListener('click', validate)
+
+
+function validate() {
+
+    if (this.id == "signin") {
+        username = document.getElementById('username1')
+        password = document.getElementById('password1')
+    } else {
+        username = document.getElementById('username2')
+        password = document.getElementById('password2')
+    }
+
     const auth = {
-        "username": document.getElementById('username').value,
-        "password": document.getElementById('password').value,
-        "origin": window.location.pathname
+        "username": username.value,
+        "password": password.value,
+        "origin": this.id
     };
     if (!auth.username) {
-        document.getElementById('username').style.border = "solid red";
         throw 'Username needed'
     }
     if (!auth.password) {
-        document.getElementById('password').style.border = "solid red";
         throw 'Password needed'
     }
     // Trys to send information to server, prints error if failure
@@ -29,20 +41,20 @@ button.addEventListener('click', e => {
             })
             .then(response => {
                 if (response.status == 400) {
-                    // Invalid login
-                    document.getElementById("warning").style.display = "inline"
+                    document.getElementById('username1').value = '';
+                    document.getElementById('password1').value = '';
+                    document.getElementById('username2').value = '';
+                    document.getElementById('password2').value = '';
                     return;
-                }
-                else if (response.status == 307) {
+                } else if (response.status == 307) {
                     // valid login
                     location.href = `${window.origin}/`;
                     return;
-                }
-                else {
-                    console.log(`Server response was not 200: ${response.status}`)
+                } else {
+                    console.log(`${response.status}`)
                 }
             })
     } catch (error) {
         console.log(error);
     }
-})
+}

@@ -21,7 +21,7 @@ def login_required(f):
         if 'user_id' in session:
             return f(*args, **kwargs)
         else:
-            return redirect("/landing")
+            return redirect("/")
     return wrap
 
 # Database setup
@@ -42,25 +42,16 @@ def after_request(response):
 
 # Main homepage of website
 @app.route("/")
-@login_required
 def index():
     if request.method == "GET":
         return render_template("index.html")
 
-# Landing page of website
-@app.route("/landing")
-def landing():
-    return render_template("landing.html")
-
-# Website Registration
-@app.route("/register")
-def register():
-    return render_template("register.html")
-
-# Website Login
-@app.route("/login")
-def login():
-    return render_template("login.html")
+# Log user out
+@app.route("/logout")
+@login_required
+def logout():
+    session.clear()
+    return redirect("/")
 
 # Login/Register validation
 @app.route("/validation", methods=["POST"])
@@ -70,7 +61,7 @@ def validation():
         # Clears the cookies
         session.clear()
         # Finds the origin of the request
-        if req['origin'] == "/login":
+        if req['origin'] == "signin":
             # Handles login
             db.execute("SELECT * FROM users WHERE username=?", [
                        req['username']])
@@ -78,7 +69,7 @@ def validation():
             if len(user) != 1 or not check_password_hash(user[0][2], req['password']):
                 return "Invalid Login", 400
 
-        elif req['origin'] == "/register":
+        elif req['origin'] == "create":
             # Handles registration
             # Registers the user into the database
             db.execute("SELECT username FROM users WHERE username=?", [
@@ -98,4 +89,5 @@ def validation():
         db.execute("SELECT user_id FROM users WHERE username=?", [req['username']])
         id = db.fetchall()
         session["user_id"] = id
+        session["username"] = req['username']
         return "Valid Login", 307
