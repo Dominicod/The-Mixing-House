@@ -1,8 +1,6 @@
 {% extends 'layout.html' %}
 {% block title %}Home{% endblock %}
 {% block body %}
-<!-- SCRIPT -->
-<script src="/static/js/input.js" defer></script>
 
 <!-- NAVIGATION -->
 
@@ -25,6 +23,8 @@
                 <!-- USER LOGGED OUT -->
                 <!-- USER REGISTER/LOGIN SECTION -->
                 {% else %}
+                <script src="/static/js/input.js" defer></script>
+
                 <div class="dropdown container-xxl">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuClickableInside"
                         data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -69,45 +69,20 @@
         <!-- TAB SELECTOR -->
         <div class="container-xxl g-0">
             <div class="btn-group btn-group-lg mt-5" role="group" aria-label="Navigation between Mixer and Your Bar">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="btnradio1">Mixer</label>
+                <input type="radio" class="btn-check tabs" name="btnradio" id="mixer" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="mixer">Mixer</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio2">Your Bar</label>
+                <input type="radio" class="btn-check tabs" name="btnradio" id="bar" autocomplete="off">
+                <label class="btn btn-outline-primary" for="bar">Your Bar</label>
             </div>
         </div>
         <div class="container-xxl g-0 border border-primary text-white">
             <!-- USER LOGGED IN -->
-            <!-- MIXER CONTENT -->
+            <!-- CONTENT -->
             {% if session['user_id'] %}
-            <div class="container-xxl">
-                <div class="row">
-                    <div class="pt-3 col border-end border-primary">
-                        <p class="h5 text-center">Liquor</p>
-                    </div>
-                    <div class="pt-3 col">
-                        <p class="h5 text-center">Flavour Profile</p>
-                    </div>
-                </div>
-                <div class="row border-bottom border-primary m-0">
-                    <div class="col border-end border-primary">Vodka</div>
-                    <div class="col">Fruity</div>
-                </div>
-                <div class="row">
-                    <p class="h5 text-center pt-3">Cocktails</p>
-                    <!--<div class="col">
-                        <div class="card m-3" style="width: 18rem;">
-                            <div class="card-body text-dark">
-                                <h5 class="card-title">Manhatton</h5>
-                                <p class="card-text"><strong>Liqour Primary: </strong>Whiskey</p>
-                                <p class="card-text"><strong>Flavour: </strong>Bitter</p>
-                                <a href="#" class="btn btn-primary">Recipe</a>
-                            </div>
-                        </div>
-                    </div>-->
-                    <script src="/static/js/tabs.js"></script>
-                </div>
-            </div>
+            <div id="session-content" class="container-xxl"></div>
+            <!-- CONTENT SCRIPTS -->
+            <script src="/static/js/tabs.js"></script>
         </div>
         <!-- USER LOGGED OUT -->
         {% else %}
@@ -115,6 +90,7 @@
         {% endif %}
     </main>
     <!-- FOOTER -->
+    <div></div>
     <footer class="container-fluid bg-primary text-white fixed-bottom">
         <div class="dropup container-xxl">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuClickableInside"
