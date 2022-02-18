@@ -5,7 +5,7 @@
 <!-- NAVIGATION -->
 
 <body class="bg-dark">
-    <nav class="navbar bg-primary text-white">
+    <nav class="navbar bg-light text-dark">
         <div class="container-xxl">
             <span class="navbar-brand">
                 <!-- USER LOGGED IN -->
@@ -26,7 +26,7 @@
                 <script src="/static/js/input.js" defer></script>
 
                 <div class="dropdown container-xxl">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuClickableInside"
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuClickableInside"
                         data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                         Login
                     </button>
@@ -43,7 +43,7 @@
                             <button type="submit" id="signin" class="btn btn-primary">Sign in</button>
                         </div>
                     </div>
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuClickableInside"
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuClickableInside"
                         data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                         New User
                     </button>
@@ -70,13 +70,13 @@
         <div class="container-xxl g-0">
             <div class="btn-group btn-group-lg mt-5" role="group" aria-label="Navigation between Mixer and Your Bar">
                 <input type="radio" class="btn-check tabs" name="btnradio" id="mixer" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="mixer">Mixer</label>
+                <label class="btn btn-outline-light" for="mixer">Mixer</label>
 
                 <input type="radio" class="btn-check tabs" name="btnradio" id="bar" autocomplete="off">
-                <label class="btn btn-outline-primary" for="bar">Your Bar</label>
+                <label class="btn btn-outline-light" for="bar">Your Bar</label>
             </div>
         </div>
-        <div class="container-xxl g-0 border border-primary text-white">
+        <div class="container-xxl g-0 border border-light text-white">
             <!-- USER LOGGED IN -->
             <!-- CONTENT -->
             {% if session['user_id'] %}
@@ -91,9 +91,9 @@
     </main>
     <!-- FOOTER -->
     <div></div>
-    <footer class="container-fluid bg-primary text-white fixed-bottom">
+    <footer class="container-fluid bg-light text-white fixed-bottom">
         <div class="dropup container-xxl">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuClickableInside"
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuClickableInside"
                 data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                 About TMH
             </button>

@@ -11,7 +11,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 
 # Sets secret key and session
-app.config["SECRET_KEY"] = "ef5c53f2003c4a448eedb3334d7de41b"
+app.config["SECRET_KEY"] = ""
 app.config["SESSION_PERMANENT"] = False
 
 # Login required

@@ -40,30 +40,40 @@ function renderHTML(data, target) {
         contentContainer.removeChild(contentContainer.firstChild);
     }
     if (target == "bar") {
-        let HTML = '';
-
-        for (i = 0; i < data.length; i++) {
-            HTML += "<p>" + data[i].name + " is a " + data[i].species + ".</p>";
-        }
+        let HTML = `
+            <div class="row p-3">
+                <div class="col">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switch1">
+                        <label class="form-check-label" for="switch1">${data[0].name}</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switch2">
+                        <label class="form-check-label" for="switch2">${data[1].name}</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switch3">
+                        <label class="form-check-label" for="switch3">${data[2].name}</label>
+                    </div>
+                </div>
+            </div>
+        `;
 
         contentContainer.insertAdjacentHTML('beforeend', HTML);
     } else {
         let HTMLHeader = `
-            <div class="row">
-                <div class="pt-3 col border-end border-primary">
+            <div class="row container-xxl">
+                <div class="pt-3 col">
                     <p class="h5 text-center">Liquor</p>
                 </div>
-                <div class="pt-3 col">
+                <div class="pt-3 col ">
                     <p class="h5 text-center">Flavour Profile</p>
                 </div>
-            </div>
-            <div class="row border-bottom border-primary m-0">
-                <div class="col border-end border-primary">Vodka</div>
-                <div class="col">Fruity</div>
-            </div>
-            <div class="row">
-                <p class="h5 text-center pt-3">Cocktails</p>
-                <div id="cocktails" class="row justify-content-center"></div>
+                <div id="cocktails" class="pt-3 row justify-content-center"></div>
             </div>
         `;
         contentContainer.insertAdjacentHTML('beforeend', HTMLHeader);
